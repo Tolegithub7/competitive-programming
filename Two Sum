@@ -1,0 +1,10 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        preN = {}
+        for i,n in enumerate(nums):
+            diff = target - n
+            if diff in preN:
+                return [preN[diff], i]
+            preN[n] = i
+        return
+        
