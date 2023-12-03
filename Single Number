@@ -1,0 +1,16 @@
+from collections import Counter
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        counts = Counter(nums)
+        for num, count in counts.items():
+            if count == 1:
+                return num 
+        # hash_nums = {}
+        # for num in nums:
+        #     if num in hash_nums:
+        #         hash_nums[num] += 1
+        #     else:
+        #         hash_nums[num] = 1
+        # for num, count in hash_nums.items():
+        #     if count == 1:
+        #         return num
