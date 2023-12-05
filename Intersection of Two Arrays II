@@ -1,0 +1,21 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # Count1 = {}
+        # Count2 = {}
+        # for num in nums1:
+        #     Count1[num] = Count1.get(num, 0)+ 1
+        # for num in nums2:
+        #     Count2[num] = Count2.get(num, 0) + 1
+        # arr = []
+        # for num in nums1:
+        #     if num in nums2:
+        #         count = min(Count1[num], Count2[num])
+        #         arr.extend([num]*count)
+        # return arr
+        res = []
+        for i in nums1:
+            if i in nums2:
+                res.append(i)
+                nums2.remove(i)
+        return res
+        # return (Counter(nums1) & Counter(nums2)).elements()
