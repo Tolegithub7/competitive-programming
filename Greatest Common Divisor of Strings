@@ -1,0 +1,15 @@
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+            return ""
+        return str1[:gcd(len(str1),len(str2))]
+        # str1 = list(str1)
+        # str2 = list(str2)
+        # str3 = []
+        # for i in range(min(len(str1),len(str2))):
+        #     if str1[i] == str2[i] and str2[i] not in str3:
+        #         str3.append(str2[i])
+        # for char in str1:
+        #     if char not in str3:
+        #         return ""
+        # return "".join(str3)
