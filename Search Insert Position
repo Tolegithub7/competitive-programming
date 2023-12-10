@@ -1,0 +1,10 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        for n in nums:
+            if target == n:
+                return nums.index(n)
+                break
+            elif target<n:
+                return nums.index(n)
+                break
+        return len(nums)
