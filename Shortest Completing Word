@@ -1,0 +1,23 @@
+class Solution:
+    def shortestCompletingWord(self, t: str, s: List[str]) -> str:
+        a = [i for i in t]
+        l  = []
+        p = []
+        c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        for i in a:
+            if i in c:
+                l.append(i.lower())
+        # print(l)
+        for i in s:
+            count = 0
+            t = [j for j in i]
+            f = list(set(t))
+            for k in l:
+                if  k in f and t.count(k)>= l.count(k):
+                    count+=1
+                elif t.count(k) < l.count(k):
+                    break 
+            if count==len(l):
+                p.append(i)
+        p.sort(key=len)
+        return (p[0])
