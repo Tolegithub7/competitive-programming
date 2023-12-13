@@ -1,0 +1,10 @@
+class Solution:
+    def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
+        envelopes.sort(key = lambda x: (x[0], -x[1]))
+        sequence = []
+        for envelope in envelopes:
+            if not sequence or sequence[-1] < envelope[1]:
+                sequence.append(envelope[1])
+                continue
+            sequence[bisect.bisect_left(sequence, envelope[1])] = envelope[1]
+        return len(sequence)
