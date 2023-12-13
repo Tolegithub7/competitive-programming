@@ -1,0 +1,16 @@
+public class Solution {
+    public int MostWordsFound(string[] sentences) {
+        int sum = 0;
+        List<int> sums = new List<int>();
+        for (int i = 0; i < sentences.Length; i++)
+        {
+            sums.Add(sentences[i].Count(Char.IsWhiteSpace));
+        }
+        for (int i = 0; i < sums.Count; i++)
+        {
+            if (sums[i] > sum)
+                sum = sums[i];
+        }
+        return sum + 1;
+    }
+}
