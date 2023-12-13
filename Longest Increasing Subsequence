@@ -1,0 +1,10 @@
+class Solution:
+    def lengthOfLIS(self, arr: List[int]) -> int:
+        res = []
+        for num in arr:
+            if not res or num > res[-1]:
+                res.append(num)
+            else:
+                idx = bisect.bisect_left(res,num)
+                res[idx] = num
+        return len(res)
