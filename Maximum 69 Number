@@ -1,0 +1,10 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        num_s = str(num)
+        Array_digit = [int(dig) for dig in num_s]
+        for i in range(len(Array_digit)):
+            if Array_digit[i] == 6:
+                Array_digit[i] = 9
+                return int(''.join([str(d) for d in Array_digit]))
+                break
+        return num
