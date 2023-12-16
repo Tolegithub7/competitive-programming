@@ -1,0 +1,9 @@
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
+        num1, num2 = 0, 0
+        for _ in range(1, n+1):
+            if _ % m == 0:
+                num2 += _
+            else:
+                num1 += _
+        return num1 - num2
