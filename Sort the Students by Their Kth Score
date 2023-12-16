@@ -1,0 +1,20 @@
+class Solution:
+    def sortTheStudents(self, score: List[List[int]], k: int) -> List[List[int]]:
+        return sorted(score, key=lambda a: -a[k])
+        # li = []
+        # len1 = len(score)
+        # for i in range(len1):
+        #     li.append(score[i][k])
+        # li.sort(reverse=True)
+        
+        # n = 0
+        # for j in range(len1):
+        #     for l in range(len(score[j])):
+        #         if l == k:
+        #             temp = score[j][l]
+        #             score[j][l]=li[n]
+        #             li[n] = temp
+        #             n += 1
+        # return score
+
+        
