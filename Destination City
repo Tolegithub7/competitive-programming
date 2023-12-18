@@ -1,0 +1,18 @@
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        sec = set(path[1] for path in paths)
+        fir = set(path[0] for path in paths)
+        ans = sec - fir
+        return ans.pop()
+        # hashMap = {}
+        # for i in range(len(paths)):
+        #     for j in range(len(paths[i])):
+        #         if paths[i][j] in hashMap:
+        #             hashMap[paths[i][j]] += 1
+        #         else:
+        #             hashMap[paths[i][j]] = 1
+        # for key, num in hashMap.items():
+        #     for i in range(len(paths)):
+        #         for j in range(1,len(paths[i])):
+        #             if num == 1 and paths[i][0] != key :
+        #                return key
