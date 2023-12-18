@@ -1,0 +1,13 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        hashMap = {}
+        for i in s:
+            if i in hashMap:
+                hashMap[i]+=1
+            else:
+                hashMap[i]=1
+        myStr = ""
+        hashMap = sorted(hashMap.items(), key=lambda x:x[1])
+        for i in hashMap:
+            myStr += i[0] * i[1]
+        return myStr[::-1]
