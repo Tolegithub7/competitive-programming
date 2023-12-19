@@ -1,0 +1,17 @@
+class Solution:
+    def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+        count = 0
+        for i in range(len(items)):
+            if ruleKey == "type":
+                for j in range(len(items[i])):
+                    if (j==0)and(ruleValue == items[i][j]):
+                        count += 1
+            if ruleKey == "color":
+                for j in range(len(items[i])):
+                    if (j==1)and(ruleValue == items[i][j]):
+                        count += 1
+            if ruleKey == "name":
+                for j in range(len(items[i])):
+                    if (j==2)and(ruleValue == items[i][j]):
+                        count += 1
+        return count
