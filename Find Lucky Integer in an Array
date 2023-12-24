@@ -1,0 +1,16 @@
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        Ha = {}
+        for elt in arr:
+            if elt in Ha:
+                Ha[elt] += 1
+            else:
+                Ha[elt] = 1
+        li = []
+        for key, value in Ha.items():
+            if key == value:
+                li.append(value)
+        if li:
+            result = max(li)
+            return result
+        return -1
