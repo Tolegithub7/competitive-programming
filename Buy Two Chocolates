@@ -1,0 +1,7 @@
+class Solution:
+    def buyChoco(self, prices: List[int], money: int) -> int:
+        prices.sort()
+        mn = money-(prices[0]+prices[1])
+        if mn<0:
+            return money 
+        return  money-(prices[0]+prices[1])
