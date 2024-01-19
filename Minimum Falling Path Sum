@@ -1,0 +1,15 @@
+class Solution:
+    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        n = len(matrix)
+        prev_row = matrix[0]
+        for i in range(1, n):
+            curr_row = [0] * n 
+            for j in range(n):
+                if j != 0 and j != n - 1:
+                    curr_row[j] = matrix[i][j] + min(prev_row[j], prev_row[j-1], prev_row[j+1])
+                elif j == 0:
+                    curr_row[j] = matrix[i][j] + min(prev_row[j], prev_row[j+1])
+                else:
+                    curr_row[j] = matrix[i][j] + min(prev_row[j], prev_row[j-1])
+            prev_row = curr_row
+        return min(prev_row)
