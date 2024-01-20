@@ -1,0 +1,40 @@
+# class Solution:
+#     def sumSubarrayMins(self, arr: List[int]) -> int:
+#         MOD = (10 ** 9) + 7
+#         n = len(arr)
+#         stack = []
+#         result = 0
+#         prevIndex = -1
+#         for i in range(n):
+#             while stack and arr[i] < arr[stack[-1]]:
+#                 poppedIndex = stack.pop()
+#                 width = i - prevIndex - 1
+#                 result += arr[poppedIndex] * width
+#                 result %= MOD
+#             stack.append(i)
+    
+#         while stack:
+#             poppedIndex = stack.pop()
+#             width = n - prevIndex - 1
+#             result += arr[poppedIndex] * width
+#             result %= MOD
+#         return result
+class Solution:
+    def sumSubarrayMins(self, arr: List[int]) -> int:
+        #Use DP & Montonic Stack
+        n=len(arr)
+        mod=10**9+7
+        dp=[0]*n
+        s=[]
+        ans=0
+        for i in range(n):
+            while len(s)>0 and arr[i]<= arr[s[-1]]:
+                s.pop()
+            if len(s)>0:
+                j=s[-1]
+                dp[i]=dp[j]+arr[i]*(i-j)
+            else:
+                dp[i]=arr[i]*(i+1)
+            s.append(i)
+            ans=(ans+dp[i])%mod
+        return ans
