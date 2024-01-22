@@ -1,0 +1,16 @@
+class Solution:
+    def findErrorNums(self, nums):
+        n = len(nums)
+        count = [0] * (n + 1)  # Create a count array to track the frequency of each number
+        duplicate = missing = 0
+        
+        for num in nums:
+            count[num] += 1  # Increment the count for each number
+        
+        for i in range(1, n + 1):
+            if count[i] == 0:
+                missing = i  # The missing number is the one with count 0
+            elif count[i] == 2:
+                duplicate = i  # The duplicate number is the one with count 2
+        
+        return [duplicate, missing]
