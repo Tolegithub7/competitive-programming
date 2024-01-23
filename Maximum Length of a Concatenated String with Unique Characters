@@ -1,0 +1,10 @@
+unique = ['']
+        res = 0
+        for i in range(len(arr)):
+            cur = unique
+            for j in range(len(cur)):
+                new = arr[i] + cur[j]
+                if len(set(new)) == len(new):
+                    unique.append(new)
+                    res = max(res, len(new))
+        return res
