@@ -1,0 +1,9 @@
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        cout=Counter(nums)
+        lis=[i for i in cout.values()]
+        m,res=max(lis),0
+        for i in lis:
+            if i==m:
+                res+=i
+        return res
