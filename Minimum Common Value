@@ -1,0 +1,5 @@
+class Solution:
+    def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+        nums1, nums2 = set(nums1), set(nums2)
+        c = sorted(list(nums1.intersection(nums2)))
+        return c[0] if len(c) else -1
