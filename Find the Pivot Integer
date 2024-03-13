@@ -1,0 +1,7 @@
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        num = sqrt(n * (n + 1) / 2)
+        if num % 1 != 0:
+            return -1
+        else:
+            return int(num)
