@@ -7,8 +7,14 @@ class Solution:
         #     elif(i>0):
         #         mn += 1
         # return mn
-        nums = set(nums)
-        x = 1
-        while x in nums:
-            x+=1
-        return x
+       
+        # nums = set(nums)
+        # x = 1
+        # while x in nums:
+        #     x+=1
+        # return x
+
+        num_set = set(nums)
+        for i in range(1, len(nums) + 2): 
+            if i not in num_set:
+                return i
