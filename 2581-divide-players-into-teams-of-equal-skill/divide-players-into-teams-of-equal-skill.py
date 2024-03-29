@@ -12,7 +12,7 @@ class Solution:
         #     return -1
         
         skill.sort()
-        lst = []
+        # lst = []
         lt, rt = 0, len(skill)-1
         const = skill[lt] + skill[rt]
         chem = 0
@@ -22,7 +22,7 @@ class Solution:
             if const1 != const:
                 return -1 
                 break
-            lst.append([skill[lt], skill[rt]])
+            # lst.append([skill[lt], skill[rt]])
             lt += 1
             rt -= 1
             chem += che
