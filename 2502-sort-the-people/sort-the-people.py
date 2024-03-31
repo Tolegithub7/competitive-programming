@@ -21,24 +21,24 @@ class Solution:
         # return names
 
 #with insertion sort
-        n = len(heights)
-        for i in range(1, n):
-            key = heights[i]
-            name_key = names[i]
-            j = i-1
-            while j >= 0 and heights[j] < key:
-                heights[j+1] = heights[j]
-                names[j+1] = names[j]
-                j -= 1
-            heights[j+1] = key
-            names[j+1] = name_key
-        return names
+        # n = len(heights)
+        # for i in range(1, n):
+        #     key = heights[i]
+        #     name_key = names[i]
+        #     j = i-1
+        #     while j >= 0 and heights[j] < key:
+        #         heights[j+1] = heights[j]
+        #         names[j+1] = names[j]
+        #         j -= 1
+        #     heights[j+1] = key
+        #     names[j+1] = name_key
+        # return names
 
 
-        # ans=[]
-        # for i in range(len(heights)):
-        #     ans.append([heights[i],names[i]])
-        # ans=sorted(ans,reverse=True)
-        # return[names for heights,names in ans]
+        ans=[]
+        for i in range(len(heights)):
+            ans.append([heights[i],names[i]])
+        ans=sorted(ans,reverse=True)
+        return[names for heights,names in ans]
         
-        # return list(a for a, b in sorted(zip(names, heights), key=lambda x:-x[1]))
+        return list(a for a, b in sorted(zip(names, heights), key=lambda x:-x[1]))
