@@ -8,5 +8,5 @@ class Solution:
                 right-=1
             elif current_sum<target:
                 left+=1
-            else: #Equal Case
-                return left+1,right+1
+            else:
+                return [left+1,right+1]
