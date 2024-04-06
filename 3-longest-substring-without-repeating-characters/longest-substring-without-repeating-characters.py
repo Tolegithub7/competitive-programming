@@ -11,11 +11,11 @@ class Solution:
 
         seen = {}
         start = 0
-        max_length = 0
-        for idx in range(len(s)):
-            cur = s[idx]
-            if cur in seen and seen[cur] >= start:
+        mx = 0 
+        for end in range(len(s)):
+            cur = s[end]
+            if cur in seen and seen[cur]>=start:
                 start = seen[cur] + 1
-            seen[cur] = idx
-            max_length = max(max_length, idx-start+1)
-        return max_length
+            seen[cur] = end
+            mx = max(mx, end-start+1)
+        return mx
