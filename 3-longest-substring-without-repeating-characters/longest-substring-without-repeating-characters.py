@@ -11,11 +11,11 @@ class Solution:
 
         seen = {}
         start = 0
-        mx = 0 
+        mx = 0
         for end in range(len(s)):
             cur = s[end]
-            if cur in seen and seen[cur]>=start:
-                start = seen[cur] + 1
+            if cur in seen and seen[cur] >= start:
+                start = seen[cur]+1
             seen[cur] = end
             mx = max(mx, end-start+1)
         return mx
