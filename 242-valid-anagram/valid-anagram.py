@@ -1,10 +1,11 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s = Counter(s)
-        t = Counter(t)
-        if s == t:
-            return True
-        return False
+        # s = Counter(s)
+        # t = Counter(t)
+        # if s == t:
+        #     return True
+        # return False
+        return Counter(s) == Counter(t)
         # hash_table = {}
         # if len(s) != len(t):
         #     return False
