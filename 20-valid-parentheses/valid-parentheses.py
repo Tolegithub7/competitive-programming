@@ -1,22 +1,67 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        if len(s)%2 != 0:
+        if len(s) % 2 != 0:
             return False
-        for char in s:
-
-            if char in ')]}':
-                if char == ')' and stack and stack[-1] == '(':
+        else:
+            for i in s:
+                if i in '([{':
+                    stack.append(i)
+                elif i == ')' and stack and stack[-1] == '(':
                     stack.pop()
-                elif char == ']' and stack and stack[-1] == '[':
+                elif i == ']' and stack and stack[-1] == '[':
                     stack.pop()
-                elif char == '}' and stack and stack[-1] == '{':
+                elif i == '}' and stack and stack[-1] == '{':
                     stack.pop()
                 else:
                     return False
-            else:
-                stack.append(char)
-        return  not stack
+        return not stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # stack = []
+        # if len(s)%2 != 0:
+        #     return False
+        # for char in s:
+
+        #     if char in ')]}':
+        #         if char == ')' and stack and stack[-1] == '(':
+        #             stack.pop()
+        #         elif char == ']' and stack and stack[-1] == '[':
+        #             stack.pop()
+        #         elif char == '}' and stack and stack[-1] == '{':
+        #             stack.pop()
+        #         else:
+        #             return False
+        #     else:
+        #         stack.append(char)
+        # return  not stack
 
         # stack = []
         # my_dict = {'(':')', '[':']', '{':'}'}
