@@ -3,14 +3,27 @@ class Solution:
         stack = []
         cur = ""
         for char in path + '/':
-            if char == '/':
-                if cur == '..':
+            if char == "/":
+                if cur == "..":
                     if stack: stack.pop()
-                elif cur != '' and cur != '.': stack.append(cur)
+                elif cur != "" and cur != ".": stack.append(cur)
                 cur = ''
-            else: 
-                cur += char 
-        return '/'+"/".join(stack)       
+            else:
+                cur += char
+        return '/'+'/'.join(stack)
+        # stack = []
+        # cur = ""
+        # for char in path + '/':
+        #     if char == '/':
+        #         if cur == '..':
+        #             if stack: stack.pop()
+        #         elif cur != '' and cur != '.': stack.append(cur)
+        #         cur = ''
+        #     else: 
+        #         cur += char 
+        # return '/'+"/".join(stack) 
+
+
         # stack = []
         # cur = ""
         # for c in path + "/":
