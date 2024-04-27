@@ -1,13 +1,24 @@
+
+
 class Solution:
     def minOperations(self, logs: List[str]) -> int:
-        idx = 0
-        for i in range(len(logs)):
-            if logs[i] == "../" :
-                if idx > 0: idx -= 1
-            elif logs[i] == "./": pass
+        stack = []
+        for i in logs:
+            if i != "../":
+                if i != "./":
+                    stack.append(i)
             else:
-                idx += 1
-        return idx
+                if stack: stack.pop()
+        return len(stack)
+
+        # idx = 0
+        # for i in range(len(logs)):
+        #     if logs[i] == "../" :
+        #         if idx > 0: idx -= 1
+        #     elif logs[i] == "./": pass
+        #     else:
+        #         idx += 1
+        # return idx
 
         # stack = []
         # for i in range(len(logs)):
@@ -19,16 +30,7 @@ class Solution:
         #     else:
         #         stack.append(logs[i])
 
-        # index = 0
-        # for i in range(len(logs)):
-        #     if logs[i] == "../":
-        #         if index>0:
-        #             index -= 1
-        #     elif logs[i] == "./":
-        #         pass
-        #     else:
-        #         index += 1
-        # return index
+ 
 
         # index = 0
         # fl = []
