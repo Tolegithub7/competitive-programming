@@ -1,49 +1,17 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        dic = {'(':')', '[':']', '{':'}'}
         stack = []
-        if len(s) % 2 != 0:
-            return False
-        else:
-            for i in s:
-                if i in '([{':
-                    stack.append(i)
-                elif i == ')' and stack and stack[-1] == '(':
-                    stack.pop()
-                elif i == ']' and stack and stack[-1] == '[':
-                    stack.pop()
-                elif i == '}' and stack and stack[-1] == '{':
-                    stack.pop()
-                else:
+        for i in s:
+            if i in dic.keys():
+                stack.append(i)
+            else:
+                if not stack:
+                    return False
+                p = stack.pop()
+                if i != dic[p]:
                     return False
         return not stack
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         # stack = []
         # if len(s)%2 != 0:
