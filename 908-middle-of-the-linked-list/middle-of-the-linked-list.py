@@ -5,10 +5,17 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        array_new = []
-        length = 0
-        while (head is not None):
-            array_new.append(head)
-            head = head.next
-            length += 1
-        return array_new[length//2]
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
+        # array_new = []
+        # length = 0
+        # while (head is not None):
+        #     array_new.append(head)
+        #     head = head.next
+        #     length += 1
+        # return array_new[length//2]
