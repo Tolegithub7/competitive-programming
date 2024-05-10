@@ -1,5 +1,5 @@
-from typing import List
-from heapq import heappush, heappop
+# from typing import List
+# from heapq import heappush, heappop
 class Solution:
     def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
         heap=[]
