@@ -1,61 +1,121 @@
+#Using Doubly linked_list
 class Node:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val):
         self.val = val
-        self.next = next
-
+        self.prev = None
+        self.next = None
 class MyLinkedList:
+
     def __init__(self):
-        self.head = None
+        self.left = Node(0)
+        self.right = Node(0)
+        self.left.next = self.right
+        self.right.prev = self.left
 
     def get(self, index: int) -> int:
-        current = self.head
-        count = 0
-        while current is not None:
-            if count == index:
-                return current.val
-            count += 1
-            current = current.next
+        cur = self.left.next
+        while cur and index>0:
+            cur = cur.next
+            index -= 1
+        if cur and cur != self.right and index == 0:
+            return cur.val
         return -1
 
     def addAtHead(self, val: int) -> None:
-        self.head = Node(val, self.head)
+        new_node, next, prev = Node(val), self.left.next, self.left
+        next.prev = new_node
+        prev.next = new_node
+        new_node.next = next
+        new_node.prev = prev
 
     def addAtTail(self, val: int) -> None:
-        new_node = Node(val)
-        if not self.head:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
+        new_node, next, prev = Node(val), self.right, self.right.prev
+        prev.next = new_node
+        next.prev = new_node
+        new_node.next = next
+        new_node.prev = prev
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index == 0:
-            self.addAtHead(val)
-            return
-        current = self.head
-        count = 0
-        while current is not None:
-            if count == index - 1:
-                new_node = Node(val, current.next)
-                current.next = new_node
-                return
-            count += 1
-            current = current.next
+        cur = self.left.next
+        while cur and index>0:
+            cur = cur.next
+            index -= 1
+        if cur and index == 0:
+            new_node, next, prev = Node(val), cur, cur.prev
+            next.prev = new_node
+            prev.next = new_node
+            new_node.next = next
+            new_node.prev = prev
 
     def deleteAtIndex(self, index: int) -> None:
-        if index == 0:
-            self.head = self.head.next
-            return
-        current = self.head
-        count = 0
-        while current is not None:
-            if count == index - 1 and current.next is not None:
-                current.next = current.next.next
-                return
-            count += 1
-            current = current.next
+        cur = self.left.next 
+        while cur and index>0:
+            cur = cur.next
+            index -= 1
+        if cur and cur != self.right and index==0:
+            next, prev = cur.next, cur.prev
+            prev.next = next
+            next.prev = prev
+
+
+# class Node:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class MyLinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def get(self, index: int) -> int:
+#         current = self.head
+#         count = 0
+#         while current is not None:
+#             if count == index:
+#                 return current.val
+#             count += 1
+#             current = current.next
+#         return -1
+
+#     def addAtHead(self, val: int) -> None:
+#         self.head = Node(val, self.head)
+
+#     def addAtTail(self, val: int) -> None:
+#         new_node = Node(val)
+#         if not self.head:
+#             self.head = new_node
+#             return
+#         last = self.head
+#         while last.next:
+#             last = last.next
+#         last.next = new_node
+
+#     def addAtIndex(self, index: int, val: int) -> None:
+#         if index == 0:
+#             self.addAtHead(val)
+#             return
+#         current = self.head
+#         count = 0
+#         while current is not None:
+#             if count == index - 1:
+#                 new_node = Node(val, current.next)
+#                 current.next = new_node
+#                 return
+#             count += 1
+#             current = current.next
+
+#     def deleteAtIndex(self, index: int) -> None:
+#         if index == 0:
+#             self.head = self.head.next
+#             return
+#         current = self.head
+#         count = 0
+#         while current is not None:
+#             if count == index - 1 and current.next is not None:
+#                 current.next = current.next.next
+#                 return
+#             count += 1
+#             current = current.next
 
 # Example usage
 # obj = MyLinkedList()
