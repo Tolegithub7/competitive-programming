@@ -10,6 +10,7 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
+        print(slow)
         return slow
 
         # array_new = []
