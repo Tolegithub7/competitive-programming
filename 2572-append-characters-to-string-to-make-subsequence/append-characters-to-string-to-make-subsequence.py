@@ -7,8 +7,8 @@ class Solution:
         #     l += 1
         # return len(t) - r
 
-        idx, n = 0, len(t)
+        i, n = 0, len(t)
         for c in s:
-            if idx < n and t[idx] == c:
-                idx += 1
-        return n - idx
+            if i < n and t[i] == c:
+                i += 1
+        return n - i
