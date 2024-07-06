@@ -1,12 +1,12 @@
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
-        current_pillow_position = 1
-        current_time = 0
-        direction = 1
-        while current_time < time:
-            if 0 < current_pillow_position + direction <= n:
-                current_pillow_position += direction
-                current_time += 1
+        cur_pos = 1
+        cur_time = 0
+        dir = 1
+        while cur_time < time:
+            if 0 < cur_pos + dir <= n:
+                cur_pos += dir
+                cur_time += 1
             else:
-                direction *= -1
-        return current_pillow_position
+                dir *= -1
+        return cur_pos
