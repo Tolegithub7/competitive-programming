@@ -1,13 +1,13 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
 #with bubble sort
-        # n = len(heights)
-        # for i in range(n - 1):
-        #     for j in range(n - i - 1):
-        #         if heights[j] < heights[j + 1]:
-        #             heights[j], heights[j + 1] = heights[j + 1], heights[j]
-        #             names[j], names[j + 1] = names[j + 1], names[j]
-        # return names
+        n = len(heights)
+        for i in range(n - 1):
+            for j in range(n - i - 1):
+                if heights[j] < heights[j + 1]:
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                    names[j], names[j + 1] = names[j + 1], names[j]
+        return names
 
 #with selection sort
         # n = len(heights)
@@ -35,10 +35,10 @@ class Solution:
         # return names
 
 
-        ans=[]
-        for i in range(len(heights)):
-            ans.append([heights[i],names[i]])
-        ans=sorted(ans,reverse=True)
-        return[names for heights,names in ans]
+        # ans=[]
+        # for i in range(len(heights)):
+        #     ans.append([heights[i],names[i]])
+        # ans=sorted(ans,reverse=True)
+        # return[names for heights,names in ans]
         
-        return list(a for a, b in sorted(zip(names, heights), key=lambda x:-x[1]))
+        # return list(a for a, b in sorted(zip(names, heights), key=lambda x:-x[1]))
