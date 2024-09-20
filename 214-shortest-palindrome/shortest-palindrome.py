@@ -1,8 +1,6 @@
 class Solution:
     def shortestPalindrome(self, s: str) -> str:
-        rev,n = '',len(s)
-        rev1 = ''
-        i = 0
+        rev, n, rev1 ,i = '',len(s), '',  0
         for j in range(n):
             rev += s[n-j-1]
 
